@@ -14,8 +14,11 @@ class Userfunctions:
             print('Incorrect format')
             phonenumber=input("Enter Phone Number: ")
         email=input('Enter email: ')
-        while not(re.findall(r"[a-zA-Z0-9._]+[@]+[a-z]+[.]+[a-z]+$",email)):
-            print('Incorrect format')
+        while not(re.findall(r"[a-zA-Z0-9._]+[@]+[a-z]+[.]+[a-z]+$",email)) or email in Userfunctions.user_dict.keys():
+            if email in Userfunctions.user_dict.keys():
+                print("Email already exists")
+            else:
+                print('Incorrect format')
             email=input('Enter email: ')
         address=input("Enter Address: ")
         password=input('Enter Password: ')

@@ -21,26 +21,27 @@ class Admin_functions:
         if len(Admin_functions.admin_dic):
             try:
                 id=int(input("Enter Id which you want to edit: "))
-                choice=int(input("1. Update Food Name\n2. Update Quantity\n3. Update Price\n4. Update Discount\n5. Update Stock \n"))
-                if choice ==1:
-                    Admin_functions.admin_dic[id].set_name(input("Enter name: "))
-                    print("Updated successfully")
-                elif choice==2:
-                    Admin_functions.admin_dic[id].set_quantity(int(input("Enter Quantity in values: ")))
-                    print("Updated successfully")
-                elif choice==3:
-                    Admin_functions.admin_dic[id].set_price(float(input("Enter Price in rupees: ")))
-                    print("Updated successfully")
-                elif choice==4:
-                    Admin_functions.admin_dic[id].set_discount(float(input("Enter discount percentage: ")))
-                    print("Updated successfully")
-                elif choice==5:
-                    Admin_functions.admin_dic[id].set_stock(int(input("Enter Stock in values:")))
-                    print("Updated successfully")
+                if id in Admin_functions.admin_dic.keys():
+                    choice=int(input("1. Update Food Name\n2. Update Quantity\n3. Update Price\n4. Update Discount\n5. Update Stock \n"))
+                    if choice ==1:
+                        Admin_functions.admin_dic[id].set_name(input("Enter name: "))
+                        print("Updated successfully")
+                    elif choice==2:
+                        Admin_functions.admin_dic[id].set_quantity(int(input("Enter Quantity in values: ")))
+                        print("Updated successfully")
+                    elif choice==3:
+                        Admin_functions.admin_dic[id].set_price(float(input("Enter Price in rupees: ")))
+                        print("Updated successfully")
+                    elif choice==4:
+                        Admin_functions.admin_dic[id].set_discount(float(input("Enter discount percentage: ")))
+                        print("Updated successfully")
+                    elif choice==5:
+                        Admin_functions.admin_dic[id].set_stock(int(input("Enter Stock in values:")))
+                        print("Updated successfully")
+                    else:
+                        print("Incorrect choice")
                 else:
-                    print("Incorrect choice")
-            except KeyError:
-                print("Food Id is not available!")
+                    print("Food Id is not available!")
             except ValueError:
                 print("Please try again. Incorrect format!")
         else:
